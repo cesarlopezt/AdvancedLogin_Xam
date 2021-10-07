@@ -1,16 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:controls="clr-namespace:AdvancedLogin.Controls"
-             x:Class="AdvancedLogin.Views.MainPage">
+             xmlns:controls="clr-namespace:AdvancedLogin.Controls" 
+             xmlns:effects="clr-namespace:AdvancedLogin.Effects"
+             x:Class="AdvancedLogin.Views.MainPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
     <StackLayout Margin="30"  VerticalOptions="CenterAndExpand" >
 
         <Label Text="Login" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"  Margin="0,0,0,30"  />
         <Label Text="Username" FontAttributes="Bold" />
-        <controls:CustomEntry Placeholder="Insert your username" />
+        <Entry Placeholder="Effect" android:Entry.ImeOptions="Next">
+            <Entry.Effects>
+                <effects:FocusEffect/>
+            </Entry.Effects>
+        </Entry>
         <Label Text="Password" FontAttributes="Bold"/>
-        <controls:CustomEntry Placeholder="Insert your password" IsPassword="True" />
+        <controls:CustomEntry Placeholder="Renderer" IsPassword="True" android:Entry.ImeOptions="Send" />
 
-        <Button Text="Log in" Command="{Binding LoginCommand}" Margin="0,40,0,0" />
+        <Grid Margin="0,40,0,0">
+            <Button Text="Log in" 
+                Command="{Binding LoginCommand}" 
+                android:VisualElement.Elevation="10"/>
+            <BoxView Color="Red" Opacity="0.2" HeightRequest="50" />
+        </Grid>
     </StackLayout> 
 </ContentPage>
