@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace AdvancedLogin.Controls
 {
-    class CustomEntry: Entry
+    public class CustomEntry: Entry
     {
     }
 }
