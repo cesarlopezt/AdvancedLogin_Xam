@@ -1,13 +1,7 @@
 ﻿using AdvancedLogin.Services;
-using Prism.Commands;
 using Prism.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 
 namespace AdvancedLogin.ViewModels
 {
@@ -18,8 +12,8 @@ namespace AdvancedLogin.ViewModels
 
         async void OnLogin()
         {
-            string CurrentOrientation = DependencyService.Get<IDeviceOrientationService>().GetOrientation().ToString();
-            await _pageDialog.DisplayAlertAsync("Logged In", $"Your current orientation is {CurrentOrientation}", "Ok");
+            string currentOrientation = DependencyService.Get<IDeviceOrientationService>().GetOrientation().ToString();
+            await _pageDialog.DisplayAlertAsync("Logged In", $"Your current orientation is {currentOrientation}", "Ok");
         }
 
         public MainPageViewModel(IPageDialogService pageDialog)
